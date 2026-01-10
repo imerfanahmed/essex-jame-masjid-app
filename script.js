@@ -55,6 +55,10 @@ function renderPrayerTimes(data) {
                 </div>
                 <div class="current-time" id="current-time">${getCurrentTime()}</div>
                 <h1>Essex Jamme Masjid</h1>
+                <div class="address">
+                    48 Chelmsford Ave, Southend-on-Sea<br>
+                    Westcliff-on-Sea SS2 6JG
+                </div>
                 <h3>Prayer Times</h3>
                 <div class="date-info">
                     <div class="date-row">

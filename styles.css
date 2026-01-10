@@ -78,6 +78,13 @@ body {
     margin-bottom: 12px;
     letter-spacing: 2px;
 }
+.address {
+    font-size: 0.7rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
 
 .logo-container {
     margin-bottom: 10px;
