@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Screen - Essex Jamme Masjid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="digital_styles.css">
+</head>
+<body>
+    <div class="ds-container">
+        <!-- LEFT PANEL: PRAYER TIMES -->
+        <div class="ds-left">
+            <div class="ds-header">
+                <div class="ds-masjid-info">
+                    <img src="./ejm.png" alt="Essex Jamme Masjid Logo" class="ds-logo">
+                    <div class="ds-title-container">
+                        <h1 class="ds-main-title">Essex Jamme Masjid</h1>
+                        <p class="ds-address">48 Chelmsford Ave, Southend-on-Sea<br>Westcliff-on-Sea SS2 6JG</p>
+                    </div>
+                </div>
+                <div class="ds-datetime">
+                    <div id="ds-time" class="ds-time">--:--:--</div>
+                    <div id="ds-date" class="ds-date">Loading date...</div>
+                    <div id="ds-hijri" class="ds-hijri">Loading hijri...</div>
+                </div>
+            </div>
+
+            <!-- Next Jamah Countdown -->
+            <div id="ds-next-prayer-banner" class="ds-next-prayer-banner" style="display: none;">
+                <span class="next-label">Next Jamah:</span>
+                <span id="ds-next-name" class="next-name">--</span>
+                <span class="next-at" id="ds-next-time">--:--</span>
+                <span class="next-in">(in <span id="ds-next-countdown">--m</span>)</span>
+            </div>
+
+            
+            <div class="ds-prayer-board">
+                <div class="ds-prayer-header">
+                    <div class="col-prayer">Prayer</div>
+                    <div class="col-begins">Begins</div>
+                    <div class="col-jamah">Jamah</div>
+                </div>
+                <div id="ds-prayer-times-list" class="ds-prayer-list">
+                    <div class="ds-loading">Loading Prayer Times...</div>
+                </div>
+            </div>
+
+            <!-- Bottom Stripe: Tomorrow -->
+            <div class="ds-tomorrow-stripe">
+                <div class="ds-tomorrow-label">TOMORROW</div>
+                <div id="ds-tomorrow-times" class="ds-tomorrow-times">
+                    <!-- Dynamic Tomorrow Times -->
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: CONTENT & SLIDESHOW -->
+        <div class="ds-right">
+            <!-- Hadith Slideshow -->
+            <div class="ds-widget ds-slideshow-widget">
+                <div class="ds-widget-title">Daily Inspiration</div>
+                <div id="ds-hadith-slider" class="ds-hadith-slider">
+                    <!-- Slides inserted here -->
+                </div>
+            </div>
+
+            <div class="ds-right-bottom">
+                <!-- Donation QR -->
+                <div class="ds-widget ds-donation-widget">
+                    <div class="ds-widget-title">Support Your Masjid</div>
+                    <div class="ds-qr-container">
+                        <img src="./donation_qr.png" alt="Donation QR" class="ds-qr-code">
+                    </div>
+                    <p class="ds-donation-text">Scan to donate easily</p>
+                </div>
+
+                <!-- More Options / Announcements -->
+                <div class="ds-widget ds-announcement-widget">
+                    <div class="ds-widget-title">Announcements</div>
+                    <ul class="ds-announcement-list">
+                        <li>
+                            <span class="announcement-icon">🕌</span>
+                            <span><strong>Jummah Prayers:</strong><br>1st Jamah 1:30 PM | 2nd Jamah 2:15 PM</span>
+                        </li>
+                        <li>
+                            <span class="announcement-icon">📚</span>
+                            <span><strong>Madrasah Classes:</strong><br>Mon-Fri from 5:00 PM to 7:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="announcement-icon">📱</span>
+                            <span><strong>Please be respectful:</strong><br>Turn off mobile phones during Salah</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ds-powered-by">
+        Powered by <strong>magicoffice.co.uk</strong>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="digital_script.js"></script>
+</body>
+</html>

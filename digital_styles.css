@@ -1,0 +1,471 @@
+:root {
+    --bg-main: #ffffff;
+    --panel-bg: rgba(255, 255, 255, 0.75);
+    --gold: #D4AF37;
+    --gold-light: #e6c863;
+    --gold-dark: #b59226;
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --accent: #D4AF37;
+    --border-color: rgba(212, 175, 55, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    /* Light yellow transparent texture and noise for paper feel */
+    background-image: 
+        radial-gradient(circle at 20% 40%, rgba(255, 248, 220, 0.9), transparent 60%),
+        radial-gradient(circle at 80% 60%, rgba(255, 252, 235, 0.7), transparent 50%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.ds-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Glassmorphism common styles */
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------- LEFT PANEL ---------------- */
+.ds-left {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.ds-header {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.ds-masjid-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ds-logo {
+    max-width: 100px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.ds-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ds-main-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold-dark);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.ds-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.ds-datetime {
+    text-align: right;
+    min-width: 160px;
+}
+
+.ds-time {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: var(--gold-dark);
+    line-height: 1;
+}
+
+.ds-date {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.ds-hijri {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Next Prayer Banner */
+.ds-next-prayer-banner {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.next-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.next-name {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    color: var(--gold-dark);
+    font-size: 1.6rem;
+    text-transform: uppercase;
+}
+
+.next-at {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text-main);
+}
+
+.next-in {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#ds-next-countdown {
+    font-weight: 700;
+    color: var(--gold-dark);
+}
+
+.ds-prayer-board {
+    flex: 1;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.ds-prayer-header {
+    display: flex;
+    background: rgba(212, 175, 55, 0.15);
+    border-bottom: 2px solid var(--gold);
+    padding: 15px 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--gold-dark);
+    letter-spacing: 1px;
+}
+
+.col-prayer { flex: 1; }
+.col-begins { flex: 1; text-align: center; }
+.col-jamah { flex: 1; text-align: right; }
+
+.ds-prayer-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.ds-prayer-row {
+    display: flex;
+    padding: 15px 30px;
+    font-size: 1.8rem;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.ds-prayer-row:last-child {
+    border-bottom: none;
+}
+
+.ds-prayer-row .col-prayer {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.ds-prayer-row .col-begins, .ds-prayer-row .col-jamah {
+    font-family: monospace;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.ds-prayer-row.active {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+    border-left: 6px solid var(--gold);
+}
+
+.ds-prayer-row.active .col-prayer {
+    color: var(--gold-dark);
+}
+.ds-prayer-row.active .col-jamah {
+    color: var(--gold-dark);
+}
+
+.ds-loading {
+    padding: 30px;
+    text-align: center;
+    color: var(--gold-dark);
+    font-size: 1.5rem;
+}
+
+.ds-tomorrow-stripe {
+    background: linear-gradient(90deg, rgba(255, 245, 215, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.ds-tomorrow-label {
+    background: var(--gold);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.ds-tomorrow-times {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.ds-tom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ds-tom-name {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.ds-tom-time {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: var(--text-main);
+}
+
+/* ---------------- RIGHT PANEL ---------------- */
+.ds-right {
+    flex: 0 0 calc(55% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.ds-widget {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.ds-widget-title {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--gold-dark);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.ds-slideshow-widget {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.ds-hadith-slider {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ds-slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.ds-slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+.ds-quran-ar {
+    font-family: 'Amiri', serif;
+    font-size: 2.3rem;
+    line-height: 1.6;
+    color: var(--gold-dark);
+    margin-bottom: 12px;
+    direction: rtl;
+    font-weight: 700;
+}
+
+.ds-quran-en {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: var(--text-main);
+}
+
+.ds-hadith-ref {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ds-right-bottom {
+    display: flex;
+    gap: 20px;
+    height: 40%;
+}
+
+.ds-donation-widget {
+    flex: 0 0 35%;
+    align-items: center;
+    text-align: center;
+}
+
+.ds-qr-container {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.ds-qr-code {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+.ds-donation-text {
+    font-size: 1rem;
+    color: var(--gold-dark);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.ds-announcement-widget {
+    flex: 1;
+}
+
+.ds-announcement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ds-announcement-list li {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: rgba(212, 175, 55, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+}
+
+.announcement-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.ds-announcement-list li span {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.ds-announcement-list li strong {
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.ds-powered-by {
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    opacity: 0.7;
+    z-index: 100;
+    letter-spacing: 0.5px;
+}
+
+.ds-powered-by strong {
+    font-weight: 600;
+    color: var(--gold-dark);
+}
