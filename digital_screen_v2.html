@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Screen V2</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="digital_styles_v2.css">
+</head>
+<body>
+    <div class="screen-container">
+        
+        <!-- Top Left Info (Sunrise/Ishraq) -->
+        <div class="top-info left">
+            <div class="info-row">
+                <span class="info-label">Sunrise</span>
+                <span class="info-time" id="v2-sunrise">--:-- AM</span>
+            </div>
+            <!-- Ishraq is optional, we'll just put a placeholder if not in API -->
+            <div class="info-row">
+                <span class="info-label">Ishraq</span>
+                <span class="info-time" id="v2-ishraq">--:-- AM</span>
+            </div>
+        </div>
+
+        <!-- Top Right Info (Dates) -->
+        <div class="top-info right">
+            <div class="info-row">
+                <span class="info-text center-text" id="v2-date">-- --- ----</span>
+            </div>
+            <div class="info-row">
+                <span class="info-text center-text" id="v2-hijri">-- ------- ----</span>
+            </div>
+        </div>
+
+        <!-- Center Masjid Info -->
+        <div class="center-masjid-info">
+            <img src="./ejm.png" alt="Essex Jamme Masjid Logo" class="center-logo">
+            <div class="center-title-container">
+                <h1 class="center-main-title">ESSEX JAMME MASJID</h1>
+                <p class="center-address">48 Chelmsford Ave, Southend-on-Sea<br>Westcliff-on-Sea SS2 6JG</p>
+            </div>
+        </div>
+
+        <!-- Calligraphy Placeholders -->
+        <div class="calligraphy left-cal">محمد</div>
+        <div class="calligraphy right-cal">الله</div>
+
+        <!-- Prayer Circles -->
+        <!-- ASAR (Top Center) -->
+        <div class="prayer-circle pos-asr" id="circle-asr">
+            <div class="pc-inner">
+                <div class="pc-adhaan">ADHAAN</div>
+                <div class="pc-time-small" id="v2-asr-begins">--:--</div>
+                <div class="pc-divider"></div>
+                <div class="pc-name">ASR</div>
+                <div class="pc-time-large" id="v2-asr-jamah">--:--</div>
+                <div class="pc-iqamah">IQAMAH</div>
+            </div>
+        </div>
+
+        <!-- DHUHR (Mid Left) -->
+        <div class="prayer-circle pos-dhuhr" id="circle-zuhr">
+            <div class="pc-inner">
+                <div class="pc-adhaan">ADHAAN</div>
+                <div class="pc-time-small" id="v2-zuhr-begins">--:--</div>
+                <div class="pc-divider"></div>
+                <div class="pc-name">DHUHR</div>
+                <div class="pc-time-large" id="v2-zuhr-jamah">--:--</div>
+                <div class="pc-iqamah">IQAMAH</div>
+            </div>
+        </div>
+
+        <!-- MAGHRIB (Mid Right) -->
+        <div class="prayer-circle pos-maghrib" id="circle-maghrib">
+            <div class="pc-inner">
+                <div class="pc-adhaan">ADHAAN</div>
+                <div class="pc-time-small" id="v2-maghrib-begins">--:--</div>
+                <div class="pc-divider"></div>
+                <div class="pc-name">MAGHRIB</div>
+                <div class="pc-time-large" id="v2-maghrib-jamah">--:--</div>
+                <div class="pc-iqamah">IQAMAH</div>
+            </div>
+        </div>
+
+        <!-- FAJAR (Bottom Left) -->
+        <div class="prayer-circle pos-fajar" id="circle-fajr">
+            <div class="pc-inner">
+                <div class="pc-adhaan">ADHAAN</div>
+                <div class="pc-time-small" id="v2-fajr-begins">--:--</div>
+                <div class="pc-divider"></div>
+                <div class="pc-name">FAJAR</div>
+                <div class="pc-time-large" id="v2-fajr-jamah">--:--</div>
+                <div class="pc-iqamah">IQAMAH</div>
+            </div>
+        </div>
+
+        <!-- ISHA (Bottom Right) -->
+        <div class="prayer-circle pos-isha" id="circle-isha">
+            <div class="pc-inner">
+                <div class="pc-adhaan">ADHAAN</div>
+                <div class="pc-time-small" id="v2-isha-begins">--:--</div>
+                <div class="pc-divider"></div>
+                <div class="pc-name">ISHA</div>
+                <div class="pc-time-large" id="v2-isha-jamah">--:--</div>
+                <div class="pc-iqamah">IQAMAH</div>
+            </div>
+        </div>
+
+        <!-- JUMU'AH Section -->
+        <div class="jumuah-section">
+            <div class="jumuah-title">JUMU'AH</div>
+            <div class="jumuah-times">
+                <div class="j-time-block">
+                    <div class="j-label">FIRST</div>
+                    <div class="j-time">01:30 <span>PM</span></div>
+                </div>
+                <div class="j-time-block">
+                    <div class="j-label">SECOND</div>
+                    <div class="j-time">02:15 <span>PM</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Bottom Arch (Current Time & Countdown) -->
+        <div class="center-arch">
+            <div class="arch-inner">
+                <div class="current-time" id="v2-current-time">--:--:--</div>
+                <div class="next-iqamah-label">NEXT IQAMAH IN</div>
+                <div class="next-iqamah-countdown" id="v2-countdown">--:--:--</div>
+            </div>
+        </div>
+
+        <!-- Bottom Red Strip -->
+        <div class="bottom-strip">
+            <div class="strip-content">
+                <span>Powered by magicoffice.co.uk</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="digital_script_v2.js"></script>
+</body>
+</html>

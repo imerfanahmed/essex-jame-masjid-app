@@ -1,0 +1,349 @@
+:root {
+    --gold: #dfb15b;
+    --gold-light: #f5d78a;
+    --gold-dark: #b88a38;
+    --dark-red: #581615;
+    --darker-red: #330b0b;
+    --almost-black: #1a0606;
+    --text-white: #ffffff;
+    
+    /* Background fallback until texture is added */
+    --bg-base: #d9c8a9; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-base);
+    font-family: 'Cinzel', serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.screen-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    /* Add a subtle radial gradient to mimic lighting */
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+/* TOP INFO BARS */
+.top-info {
+    position: absolute;
+    top: 6vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.top-info.left { left: 4vw; }
+.top-info.right { right: 4vw; width: 18vw; }
+
+.info-row {
+    background: linear-gradient(to right, #000000, var(--almost-black));
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+    padding: 0.8vh 1.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gold-light);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.info-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vw;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.info-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* CENTER MASJID INFO */
+.center-masjid-info {
+    position: absolute;
+    top: 4vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.center-logo {
+    max-width: 90px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    margin-bottom: 1.5vh;
+}
+
+.center-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5vh;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 0.5vh;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.center-address {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3vh;
+    font-weight: 600;
+    color: var(--text-white);
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* CALLIGRAPHY */
+.calligraphy {
+    position: absolute;
+    top: 10vh;
+    font-size: 6vw;
+    color: var(--gold);
+    font-family: 'Amiri', serif;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.left-cal { left: 28vw; }
+.right-cal { right: 28vw; }
+
+
+/* PRAYER CIRCLES */
+.prayer-circle {
+    position: absolute;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    background: var(--dark-red);
+    border: 4px solid var(--dark-red);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 0 2px var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.prayer-circle.active {
+    border-color: var(--gold-light);
+    box-shadow: 0 0 30px rgba(223, 177, 91, 0.6), inset 0 0 0 4px var(--gold-light);
+    background: var(--darker-red);
+}
+
+.pc-inner {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border: 1px dashed var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1vh;
+}
+
+.pc-adhaan, .pc-iqamah {
+    font-size: 1.2vh;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.pc-name {
+    font-size: 2.2vh;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin: 0.5vh 0;
+}
+
+.pc-time-small {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5vh;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-top: 0.5vh;
+}
+
+.pc-time-large {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5vh;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 0.5vh;
+}
+
+.pc-divider {
+    width: 60%;
+    height: 1px;
+    background: var(--gold);
+    margin: 1vh 0;
+    position: relative;
+}
+.pc-divider::before, .pc-divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+.pc-divider::before { left: -5px; }
+.pc-divider::after { right: -5px; }
+
+
+/* POSITIONS */
+.pos-asr { top: 25vh; left: 50vw; width: 28vh; height: 28vh; }
+.pos-dhuhr { top: 38vh; left: 26vw; }
+.pos-maghrib { top: 38vh; left: 74vw; }
+.pos-fajar { top: 68vh; left: 18vw; }
+.pos-isha { top: 68vh; left: 82vw; }
+
+
+/* JUMU'AH SECTION */
+.jumuah-section {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 30vw;
+}
+
+.jumuah-title {
+    font-size: 3.5vh;
+    color: var(--dark-red);
+    letter-spacing: 5px;
+    border-bottom: 1px solid var(--dark-red);
+    padding-bottom: 1vh;
+    margin-bottom: 1vh;
+    font-weight: 700;
+}
+
+.jumuah-times {
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+}
+
+.j-time-block {
+    text-align: center;
+}
+
+.j-label {
+    font-size: 1.5vh;
+    color: var(--dark-red);
+    letter-spacing: 2px;
+}
+
+.j-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3vh;
+    font-weight: 700;
+    color: var(--dark-red);
+}
+.j-time span {
+    font-size: 1.5vh;
+}
+
+
+/* BOTTOM ARCH */
+.center-arch {
+    position: absolute;
+    bottom: 4vh; /* above the bottom strip */
+    left: 50vw;
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 25vw;
+    background: var(--almost-black);
+    border-top-left-radius: 25vw;
+    border-top-right-radius: 25vw;
+    border: 4px solid var(--dark-red);
+    border-bottom: none;
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.3), inset 0 5px 0 0 var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 4vh;
+}
+
+.arch-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.current-time {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8vh;
+    font-weight: 700;
+    color: var(--text-white);
+    line-height: 1;
+    margin-bottom: 2vh;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.next-iqamah-label {
+    font-size: 2vh;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 1vh;
+}
+
+.next-iqamah-countdown {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4vh;
+    font-weight: 700;
+    color: var(--gold-light);
+}
+
+
+/* BOTTOM STRIP */
+.bottom-strip {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 4vh;
+    background: var(--dark-red);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2vw;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+.strip-content {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-white);
+    font-size: 1.5vh;
+    font-weight: 600;
+}
